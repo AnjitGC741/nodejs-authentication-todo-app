@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        .login-div{
+            width: 350px;
+            margin: 250px auto;
+        }
+        h1{
+            text-align: center;
+            font-size: 36px;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+        }
+        input{
+            width: 100%;
+            height: 40px;
+            background-color: rgb(240, 240, 240);
+            border: none;
+            padding-left:15px ;
+        }
+        button{
+            width: 100%;
+            font-size: 20px;
+            font-weight: 500;
+            color: #ffffff;
+            background-color: blueviolet;
+            height: 40px;
+            border: none;
+            cursor: pointer;
+        }
+        p{
+            font-size: 20px;
+            color: red;
+            text-align: center;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-div">
+        <% if(error)  { %>
+            <p><%= error %></p>
+          <% }%>  
+        <h1>Login</h1>
+        <form action="/login" method="post">
+            <input type="email" name="email" placeholder="Enter email">
+            <input type="password" name="password" placeholder="Enter password">
+            <button type="submit">LOGIN</button>
+        </form>
+    </div>
+</body>
+</html>

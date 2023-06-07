@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- font link -->
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link
+       href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100&family=Inter:wght@400;500;600;700&family=Signika+Negative:wght@300&display=swap"
+       rel="stylesheet"
+     />
+      <!-- font awesome links -->
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <form method="GET" action="/logout"> 
+        <button class="logout-btn" type="submit">Log out</button>
+    </form> 
+    <section class="todo-box">
+        <div class="todo-box-secondary-box">
+            <div class="img-date-section">
+                <div class="for-img">
+                    <img src="../img/mount-4.jpg" alt="mountain img">
+                </div>
+                <div class="overlay">
+                    <h1>Todo Tasks</h1>
+                  </div>
+            </div>
+            <div class="todo-list-section">
+                <ul>
+                    <% if(tasks.length !== 0) { %>
+                    <% tasks.forEach(value => { %>
+                      <li><%= value.task%> 
+                        <form action="/delete" method="POST">
+                            <input type="text" hidden name="idValue" value=<%= value.id %>>
+                            <button type="submit" class="delete-btn"><ion-icon class="trash-icon" name="trash-outline"></ion-icon>X </button></li>
+                        </form>
+                    <% }) %>
+                    <% } else { %>
+                        <div class="emptyBox">
+                            <img src="../img/empty-folder.png" alt="an empty folder">
+                            <p>No any tasks</p>
+                      </div>
+                     <% } %>   
+                 </ul>
+            </div>
+            <div class="add-task-section">
+                <form action="/add-task" method="POST">
+                <input  class="inputTask" type="text" name="task">
+                <button class="add-btn" type="submit">Add Task</button>
+               </form>
+              </div>
+        </div>
+    </section>
+</body>
+</html>
